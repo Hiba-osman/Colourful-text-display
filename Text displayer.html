@@ -14,6 +14,19 @@
         <option value="orange">Orange</option>
         <option value="purple">Purple</option>
     </select>
+    <br>
+      <h1 for="text-size">Choose text size:</h1>
+      <input type="number" id="text-size" min="5"><br>
+  
+      <h1 for="font-family">Choose font family:</h1>
+      <select id="font-family">
+        <option selected disabled></option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+      </select>
+      <br><br><br>
     <button onclick="printText()">Print Text</button>
     <h2>Your text will appear here:</h2>
     <div id="displayText"></div>
@@ -22,8 +35,10 @@
         function printText() {
             const userInput = document.getElementById('userInput').value;
             const color = document.getElementById('colorSelect').value;
-            const displayText = document.getElementById('displayText');
-            displayText.innerHTML = `<span style="color: ${color};">${userInput}</span>`;
+            var textSize = document.getElementById("text-size").value;
+            var fontFamily = document.getElementById("font-family").value;
+            var styledText = "<p style='color: " + color + "; font-size: " + textSize + "px; font-family: " + fontFamily + ";'>" + userInput + "</p>";
+            document.getElementById("displayText").innerHTML = styledText;
         }
     </script>
 </body>
